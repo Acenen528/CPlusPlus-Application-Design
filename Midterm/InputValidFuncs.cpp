@@ -55,10 +55,10 @@ string getValidFilename() {
         } else if (filename.find_first_of("\\/:*?\"<>|") != string::npos) {
             cout << "Filename contains invalid characters (e.g., \\, /, :, *). Try again: ";
         } else {
-            if (filename.length() < 4 || filename.substr(filename.length() - 4) != ".csv") {
-                filename += ".csv";
+            if (!filename.ends_with(".csv")) { 
+                filename += ".csv";  
+                return filename;
             }
-            return filename;
         }
     }
 }
